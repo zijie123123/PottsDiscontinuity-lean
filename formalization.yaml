@@ -1,0 +1,175 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "Discontinuity of the phase transition for the planar random-cluster and Potts models with q > 4 (Theorems 1.1 and 1.2)"
+  description: >-
+    A complete Lean 4 / Mathlib formalization of Theorems 1.1 and 1.2 of Duminil-Copin, Gagnebin,
+    Harel, Manolescu and Tassion (arXiv:1611.09877v2). For the q-state Potts model on the square
+    lattice with q > 4, at beta_c = log(1 + sqrt q), the q + 1 box-limit Gibbs measures are distinct and
+    ergodic, each monochromatic measure gives its own colour probability greater than 1/q at the
+    origin, and the diagonal correlation length is lambda + 2 sum_{k >= 1} (-1)^k tanh(k lambda) / k,
+    where cosh lambda = sqrt(q) / 2, a positive number. For the random-cluster model on the square
+    lattice with q > 4 at p_c = sqrt(q) / (1 + sqrt q), the free and wired box-limit measures differ,
+    the wired measure has an infinite cluster almost surely, the free two-point function between 0
+    and the diagonal site x_n decays at the same exact rate, and that rate equals
+    sum_{k >= 0} 4 / ((2k + 1) sinh(pi^2 (2k + 1) / (2 lambda))), which is equivalent to
+    8 exp(-pi^2 / sqrt(q - 4)) as q decreases to 4. Every external result the paper relies on
+    (Edwards-Sokal coupling, FKG and comparison inequalities, Burton-Keane, planar duality, the
+    coordinate Bethe ansatz, Perron-Frobenius, the analytic implicit function theorem, Brouwer's
+    fixed-point theorem) is proved or taken from Mathlib; the only axioms are propext,
+    Classical.choice and Quot.sound.
+  authors:
+    - "Zijie Zhuang"
+  license: "Apache-2.0"
+  responsible_maintainers:
+    - "Zijie Zhuang"
+
+repository:
+  role: "substantive-development"
+
+classification:
+  arxiv: ["math.PR", "math-ph"]
+  msc2020: ["82B20", "82B26", "82B43", "60K35", "82B23"]
+
+sources:
+  - title: "Discontinuity of the phase transition for the planar random-cluster and Potts models with q > 4"
+    authors:
+      - "Hugo Duminil-Copin"
+      - "Maxime Gagnebin"
+      - "Matan Harel"
+      - "Ioan Manolescu"
+      - "Vincent Tassion"
+    id: "arXiv:1611.09877v2"
+    type: "article"
+    location: "Theorem 1.1 (p. 2); Theorem 1.2 with equations (1.2) and (1.3) (p. 4); proofs in Sections 2-4"
+    relationship: "formalizes"
+    note: >-
+      The statements of Theorems 1.1 and 1.2 are formalized with the representation choices listed
+      under fidelity; the proofs follow the paper, with the repairs of individual proof steps listed
+      under fidelity. The PDF used (arXiv v2) has SHA-256
+      11556ec3855cee0b91212b98a82dce7456883915c20cceab05d6bd632f6f0eb7.
+    license: "arXiv non-exclusive distribution licence (nonexclusive-distrib/1.0); not redistributed here"
+    author_endorsement: "not-contacted"
+
+related_formalizations: []
+
+status:
+  scope: >-
+    Formalized: Theorem 1.1 in full and Theorem 1.2 in full (items 1-3, equation (1.2), positivity of
+    its right-hand side, the identity (1.3) and the asymptotic equivalence as q decreases to 4), as
+    the three Lean theorems PottsDiscontinuity.potts_theorem_1_1, PottsDiscontinuity.rc_theorem_1_2
+    and PottsDiscontinuity.rc_theorem_1_2_positivity_eq_1_3, together with every intermediate result
+    of the paper they depend on. Not formalized: that beta_c = log(1 + sqrt q) and
+    p_c = sqrt(q) / (1 + sqrt q) are the critical points (they enter as explicit values), and
+    convergence of the finite-volume measures along arbitrary exhaustions of the lattice (the
+    infinite-volume measures are limits along the boxes [-n, n]^2).
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+  main_results:
+    - declaration: "PottsDiscontinuity.potts_theorem_1_1"
+      file: "PottsDiscontinuity/Frozen/Theorem11.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+    - declaration: "PottsDiscontinuity.rc_theorem_1_2"
+      file: "PottsDiscontinuity/Frozen/Theorem12.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+    - declaration: "PottsDiscontinuity.rc_theorem_1_2_positivity_eq_1_3"
+      file: "PottsDiscontinuity/Frozen/Theorem12Eq13.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+
+automation:
+  methods:
+    - method: "agent"
+      models:
+        - "claude-opus-5-5"
+        - "claude-sonnet (version not recorded)"
+        - "gpt-6-luna"
+        - "gpt-6.1-sol"
+        - "gpt-6-astra"
+      framework: "Claude Code (orchestrator) with OpenAI Codex CLI proof workers and Claude Sonnet reviewer agents"
+      tool_setup: >-
+        Orchestrator-worker workflow based on the LeanAutoformalizationSkills repository
+        (https://github.com/scottnarmstrong/LeanAutoformalizationSkills). The statements of the main
+        theorems and of their 17 definitions were transcribed from the paper, audited by two
+        independent reviewer agents, approved by the author and frozen before any proof work; a
+        source-level proof dependency graph was extracted from the paper and reviewed; proof workers
+        (up to ten in parallel, on disjoint files) proved graph nodes below the frozen statements;
+        each sealed main theorem received an independent agent audit (statement fidelity, proof
+        assembly, axioms). Builds used local Lean/Lake.
+      cost:
+        wall_time: "about two days of agent work (2026-10-18 to 2026-10-19), plus release preparation"
+        spend_usd: "not tracked"
+        hardware: "one local machine (18 cores, 64 GB RAM) and model APIs"
+      prompting_notes: >-
+        Each worker received a bounded brief: one target, the files it owns, the allowed
+        dependencies, the validation commands and a stop condition. Frozen statements could not be
+        changed; a worker that found a frozen statement or a source step wrong had to stop and report
+        (several source-level gaps were found this way and repaired, see fidelity).
+  spend_usd: "not tracked"
+  notes: >-
+    The author directed the work, approved the exact Lean statements and the representation choices
+    (rulings R1-R10 in the README), and decided all scope questions. Proof search, proof writing and
+    reviews were done by AI agents; the Lean kernel (and, for the submission, Comparator with
+    independent kernels) checks the result.
+
+fidelity:
+  divergences: >-
+    Representation choices (approved before proving; see the README): infinite-volume measures are
+    limits along the boxes [-n, n]^2, weak convergence is convergence of all finite-dimensional
+    cylinder probabilities, and the theorems assert existence of such limit measures with the stated
+    properties (existence of the box limits, which the paper asserts without proof, is proved);
+    beta_c and p_c are explicit values (criticality itself is not part of the theorems); Potts spins
+    are Set.Icc 1 q and boundary conditions are Fin (q + 1) and Fin 2; ergodicity is invariance
+    under all translations plus triviality of translation-invariant events; the alternating series is
+    the limit of its ordered partial sums; Theorem 1.2 is split into two Lean theorems (items 1-3
+    with (1.2), and positivity with (1.3)). Repairs of proof steps (statements unaffected): the event
+    C in the proof of Lemma 3.15 is replaced by a corrected local connection event C' (the original
+    implication B and C imply U = 1 fails, with a formal counterexample for N = M = 8, n = 1);
+    Lemma 3.14 is proved in a corrected limsup form; the dominance of Lambda_0 over all sectors in
+    Section 3.3 is proved separately; the identity Z(M) = Tr((V^[n]_infinity)^M) in the proof of
+    Lemma 3.2 fails for r >= 2 and the conclusion is proved by another count; the endpoint Delta_0 in
+    Corollary 3.4 is handled separately; the logarithmic singularity in (3.8) is handled by a
+    truncation estimate; absence of percolation for the critical free measure (q > 4) is derived
+    from the finite correlation length instead of Zhang's argument.
+
+review:
+  status: "agent-reviewed"
+  reviewers:
+    - "independent Claude Sonnet reviewer agents (statement audits, dependency-graph reviews, final audits of each main theorem)"
+  notes: >-
+    Two reviewer agents compared every frozen definition and theorem statement with the paper
+    (definition and declaration fidelity, no excess hypotheses) before the author approved them;
+    the source dependency graph was reviewed shard by shard and globally; each main theorem was
+    audited after its proof was assembled (exact statement, proof assembly only, axioms). No human
+    mathematician has refereed the formal development.
+
+alignment:
+  namespace: "PottsDiscontinuity"
+  statements:
+    - source: "Theorem 1.1"
+      lean: "PottsDiscontinuity.potts_theorem_1_1"
+      module: "PottsDiscontinuity.Frozen.Theorem11"
+      status: "proved"
+      note: "All three items, with the box-limit representation of the Gibbs measures (ruling R1)."
+    - source: "Theorem 1.2, items 1-3 and equation (1.2)"
+      lean: "PottsDiscontinuity.rc_theorem_1_2"
+      module: "PottsDiscontinuity.Frozen.Theorem12"
+      status: "proved"
+      note: "Free and wired box-limit measures at p_c (ruling R1); the limit of item 3 is stated with the partial-sum limit S (ruling R7)."
+    - source: "Theorem 1.2, positivity of the right-hand side of (1.2) and equation (1.3)"
+      lean: "PottsDiscontinuity.rc_theorem_1_2_positivity_eq_1_3"
+      module: "PottsDiscontinuity.Frozen.Theorem12Eq13"
+      status: "proved"
+      note: "Exact identity for every q > 4 and asymptotic equivalence along q decreasing to 4 (ruling R8)."
+
+acknowledgements: >-
+  Mathlib; fixed-point-theorems by harfe (https://github.com/harfe/fixed-point-theorems-lean4,
+  Brouwer's fixed-point theorem, MIT, vendored); the LeanAutoformalizationSkills repository;
+  the Palomar submission template.

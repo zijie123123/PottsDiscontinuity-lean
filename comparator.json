@@ -1,0 +1,15 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "PottsDiscontinuity.potts_theorem_1_1",
+    "PottsDiscontinuity.rc_theorem_1_2",
+    "PottsDiscontinuity.rc_theorem_1_2_positivity_eq_1_3"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}
