@@ -14,8 +14,8 @@ open Torus CorrLength
 noncomputable local instance lowerEstimateBoxEdgeFintype (c : RotatedVertex) (R : ℕ) :
     Fintype (liftedBoxGraph c R).edgeSet := Fintype.ofFinite _
 
-/-- All finite-volume ingredients of (3.15), with the topological premise T2 discharged
-(`TorusTopology.hBCU_proved`, via `TorusRC/TopologyBounds.lean`).
+/-- All finite-volume ingredients of (3.15), with the topological premise that B ∩ C′
+forces `U = 1` discharged (`TorusTopology.hBCU_proved`, via `TorusRC/TopologyBounds.lean`).
 Only the uniform rectangle-crossing estimate h319 remains a premise. -/
 theorem torusRCU_one_lower_of_h319 (q : Set.Ici (1 : ℝ)) (hh319 : h319 q) :
     ∃ c : ℝ, 0 < c ∧ c ≤ 1 ∧ ∀ (N M n : ℕ) (hN : Even N) (hM : Even M)

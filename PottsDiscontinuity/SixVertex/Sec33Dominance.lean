@@ -6,7 +6,8 @@ public import PottsDiscontinuity.SixVertex.Sec33Symmetry
 /-!
 # Abstract assembly of the six-vertex dominance gap
 
-The repaired large-width argument in the dependency graph has external Potts-model inputs.  This
+The repaired large-width argument for the six-vertex dominance gap (Section 3.3) has external
+Potts-model inputs.  This
 module proves its finite spectral assembly conditionally on the stated exponential gap for all
 `r ≥ 2` and the strict `r = 1` comparison; it does not prove those analytic hypotheses.
 -/

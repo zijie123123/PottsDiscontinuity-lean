@@ -50,7 +50,7 @@ def torusRCSeamClosed (A : RCConfig N M) : RCConfig N M :=
     torusRCSeamClosed A (i, j) = A (i, j) := by
   simp [torusRCSeamClosed, hj]
 
-/-- The clean cylinder crossing event used by T3: there are `r` different
+/-- The clean cylinder crossing event used in the premise `hUr` below: there are `r` different
 open primal clusters of the seam-closed configuration, each joining row zero
 to the top row. The vertices are existential, so the event handles every
 horizontal location and both checkerboard parities. -/
@@ -64,9 +64,9 @@ def torusRCSeamClosedCylinderCrossings (hN : Even N) (hM : Even M)
       ∀ i j, i ≠ j →
         ¬ (diamondOpenGraph hN hM true A).Reachable (x i) (x j)
 
-/-- Exact topological premise T2. It is discharged by `TorusTopology.hBCU_proved`
-in `TorusTopology/BarrierEvent.lean`.
-The event B is `torusRCBarrier`, and C prime is `torusCPrime`. -/
+/-- Exact topological premise that B ∩ C′ forces `U = 1`, where the event B is
+`torusRCBarrier` and C′ is `torusCPrime`. It is discharged by `TorusTopology.hBCU_proved`
+in `TorusTopology/BarrierEvent.lean`. -/
 def hBCU (hN : Even N) (hM : Even M) (hNpos : 0 < N) (hMpos : 0 < M)
     (hNdiv : 8 ∣ N) (n : ℕ) : Prop :=
   8 * n ≤ N → N / 2 < M →
@@ -75,8 +75,9 @@ def hBCU (hN : Even N) (hM : Even M) (hNpos : 0 < N) (hMpos : 0 < M)
       A ∈ torusCPrime hNpos hMpos hNdiv hM n →
       rcVerticalWinding hN hM ⟨0, hMpos⟩ A = 1
 
-/-- Exact topological premise T3. It states that `U ≥ r` forces `r` distinct
-bottom-to-top clusters after the seam row is closed. -/
+/-- Exact topological premise that `U ≥ r` forces `r` distinct bottom-to-top clusters
+after the seam row is closed. It is discharged by `TorusTopology.hUr_proved` in
+`TorusTopology/CylinderCount.lean`. -/
 def hUr (hN : Even N) (hM : Even M) (hMpos : 0 < M) (r : ℕ) : Prop :=
   ∀ A : RCConfig N M,
     r ≤ rcVerticalWinding hN hM ⟨0, hMpos⟩ A →

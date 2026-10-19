@@ -2,7 +2,8 @@ module
 
 public import PottsDiscontinuity.Torus.LoopStatistics
 
-/-! The weaker T5 conclusion required by the sector estimate uses only the
+/-! The weak form of the vertical loop structure for U = 1 (at most two loops with nonzero
+vertical winding), required by the sector estimate, uses only the
 absolute winding mass, not classification of essential torus curves. -/
 
 @[expose] public section
@@ -38,8 +39,8 @@ theorem verticalWindingLoops_card_le_mass (hN : Even N) (hM : Even M) (j : Fin M
     _ ≤ verticalMass _ _ (checkerArrows_compatible hN hM (rcSmoothing A)) j :=
       Finset.sum_le_sum_of_subset (Finset.filter_subset _ _)
 
-/-- T5, in the weaker form required by the sector estimate of Corollary 3.13(ii): U=1
-allows at most
+/-- The vertical loop structure for U = 1, in the weaker form required by the sector
+estimate of Corollary 3.13(ii): U=1 allows at most
 two loops with nonzero vertical winding. No claim of zero horizontal winding. -/
 theorem verticalWindingLoops_card_le_two_of_U_eq_one
     (hN : Even N) (hM : Even M) (j : Fin M) (A : RCConfig N M)

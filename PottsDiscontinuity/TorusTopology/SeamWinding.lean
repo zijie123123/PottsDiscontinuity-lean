@@ -107,7 +107,8 @@ theorem verticalMass_le_two_of_single_open_seam (hN : Even N) (hM : Even M)
   simp only [Finset.sum_add_distrib, Finset.sum_ite_eq, Finset.mem_univ, ite_true] at hs
   exact_mod_cast hs
 
-/-- T1': all but exactly one primal seam edge open implies U ≤ 1.
+/-- If all but exactly one primal seam edge are open, then U ≤ 1. This is the upper
+bound in the implication B ∩ C′ ⇒ U = 1 (`barrier_and_CPrime_imply_U_eq_one`).
 The proof counts intersections through the dual shadow of each loop. -/
 theorem rcVerticalWinding_le_one_of_seamAllButOneOpen
     (hN : Even N) (hM : Even M) (hMp : 0 < M) (j : Fin M) (A : RCConfig N M)

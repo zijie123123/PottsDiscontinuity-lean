@@ -46,8 +46,8 @@ theorem transferBlock_perronFrobenius (hc : 0 < c) {n : ℕ} (hn : n ≤ N) :
 theorem Lambda_pos (hc : 0 < c) {r : ℕ} (hr : r ≤ N / 2) : 0 < Lambda c N r :=
   (transferBlock_perronFrobenius hc (n := N / 2 - r) (by omega)).1
 
-/-- **Rate of `Z^{(r)}_{6V}`** (`sec:RCM#PF-block-rate`): for `c > 0`, `N ≥ 1` and `0 ≤ r ≤ N/2`,
-`lim_{M→∞} (1/M) log Z^{(r)}_{6V}(N, M) = log Λ_r(N)`. -/
+/-- **Rate of `Z^{(r)}_{6V}`** (Section 3.3, as used in (3.24)): for `c > 0`, `N ≥ 1` and
+`0 ≤ r ≤ N/2`, `lim_{M→∞} (1/M) log Z^{(r)}_{6V}(N, M) = log Λ_r(N)`. -/
 theorem tendsto_log_Z6Vr (hc : 0 < c) (hN : 0 < N) {r : ℕ} (hr : r ≤ N / 2) :
     Tendsto (fun M : ℕ => (1 / (M : ℝ)) * Real.log (Z6Vr c N M r)) atTop
       (𝓝 (Real.log (Lambda c N r))) := by

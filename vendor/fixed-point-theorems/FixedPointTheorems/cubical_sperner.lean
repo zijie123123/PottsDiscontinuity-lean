@@ -500,7 +500,7 @@ lemma child_map_inj {hn1 : n1 + 1 = SC.n }: Function.Injective (@child_map SC n1
   }
   rw [← child_map_applied SC v1]
   rw [← child_map_applied SC v2]
-  rwa [h1]
+  rw [h1]
   all_goals exact hn1
 }
 

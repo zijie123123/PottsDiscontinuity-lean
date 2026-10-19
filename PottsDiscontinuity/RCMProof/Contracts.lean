@@ -131,9 +131,10 @@ def corrected_lemma314 : Prop :=
         (fun n => abs (TorusLoops.windingLoopDensityLogRate hN (by omega) q n))
         Filter.atTop ≤ ε
 
-/- The topological premise T5 (the vertical loop structure when `U = 1`) is not restated
-here: it is proved in `TorusTopology/VerticalSupport.lean` and
-`TorusTopology/UnitWindingStructure.lean` and used by `Torus/Corollary313.lean`. It is a
+/- The vertical loop structure when `U = 1` (exactly two loops with nonzero vertical
+winding, with opposite unit windings) is not restated here: it is proved as
+`TorusTopology.verticalWindingLoops_card_le_two_of_U_eq_one` and
+`TorusTopology.U_one_vertical_loop_structure` and used by `Torus/Corollary313.lean`. It is a
 loop-structure input, not any of the rate or theorem conclusions of the Theorem 1.2 assembly. -/
 
 /- Theorem 3.1's general zero-root branch from BetheAnsatz/ZeroRootTheorem.lean

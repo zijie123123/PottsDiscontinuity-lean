@@ -13,7 +13,8 @@ namespace PottsDiscontinuity.Torus
 
 variable {N M : ℕ}
 
-/-- The RC summand in Corollary 3.13, using the OR-2 homological loop count. -/
+/-- The RC summand in Corollary 3.13, with `ell₀` taken to be the homological loop count
+`windingLoopCount` (loops with nonzero vertical or horizontal seam winding). -/
 noncomputable def torusCorrectedRCWeight
     (hN : Even N) (hM : Even M) (i : Fin N) (j : Fin M)
     (q : Set.Ici (1 : ℝ)) (A : RCConfig N M) : ℝ :=
@@ -33,7 +34,8 @@ theorem windingLoopCount_le_rcLoopCount
     _ = rcLoopCount hN hM A := by simp [rcLoopCount, loopCount]
 
 /-- Lemma 3.9 rewrites the corrected RC summand as one factor per
-homologically contractible or winding loop, with `ell₀` fixed by OR-2. -/
+homologically contractible or winding loop, with `ell₀` taken to be the homological
+count `windingLoopCount`. -/
 theorem torusCorrectedRCWeight_eq_loopFactors
     (hN : Even N) (hM : Even M) (i : Fin N) (j : Fin M)
     (q : Set.Ici (1 : ℝ)) (A : RCConfig N M) :

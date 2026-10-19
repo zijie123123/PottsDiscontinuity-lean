@@ -9,7 +9,7 @@ public import PottsDiscontinuity.Bethe.Prop21Tau
 `hatCoef f m = (1/2π) ∫_{-π}^{π} e^{-imα} f(α) dα` is the Fourier coefficient of the source.  This
 file records the coefficient computations of §4 (done here without residues, see below):
 
-* `hatCoef_Xi`: `Ξ̂_μ(m) = e^{-μ|m|}` (node `sec:Fourier#Xi-fourier-coefficients`);
+* `hatCoef_Xi`: `Ξ̂_μ(m) = e^{-μ|m|}` (the Fourier coefficients of `Ξ_μ`, Section 4);
 * `hatCoef_Rsech`: `R̂(m) = 1/(2 cosh(λ m))` (eq. (4.1), `eq:Rhat`);
 * `hatCoef_PsiFn_zero`, `hatCoef_PsiFn`: `Ψ̂(0) = 0` and `Ψ̂(m) = ((-1)^m/(i m)) (1 - Ξ̂_{2λ}(m))`;
 * `hatCoef_TcontFn_zero`, `hatCoef_TcontFn`: `T̂(0) = 0` and `T̂(m) = ((-1)^m/(i m)) tanh(λ|m|)`;

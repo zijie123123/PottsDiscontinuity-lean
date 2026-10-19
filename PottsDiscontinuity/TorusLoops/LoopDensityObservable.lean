@@ -35,7 +35,8 @@ noncomputable def windingLoopDensityUpperBase (q : Set.Ici (1 : ℝ)) : ℝ :=
 noncomputable def windingLoopDensityLowerBase (q : Set.Ici (1 : ℝ)) : ℝ :=
   min 1 (windingLoopDensityBase q)
 
-/-- The source observable, using the OR-2 winding count and the net indicator. -/
+/-- The source observable, using the homological winding count `windingLoopCount` for
+`ell₀` and the net indicator. -/
 noncomputable def windingLoopDensityWeight
     (hN : Even N) (hM : Even M) (hNp : 0 < N) (hMp : 0 < M)
     (q : Set.Ici (1 : ℝ)) (A : RCConfig N M) : ℝ :=

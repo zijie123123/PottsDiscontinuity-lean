@@ -16,7 +16,8 @@ variable {N M : ℕ}
 noncomputable section
 
 /-- All phases of one positive-winding loop yield distinct actual cylinder
-clusters. This is the multiplicity step in T3. -/
+clusters. This is the multiplicity step in the proof that `U ≥ r` gives `r` distinct
+bottom-to-top clusters after the seam row is closed (`hUr_proved`). -/
 theorem cylinder_crossings_of_positive_vertical_loop
     (hN : Even N) (hM : Even M) (hMp : 0 < M) (j : Fin M) (A : RCConfig N M)
     (q : Loop hN hM (rcSmoothing A))

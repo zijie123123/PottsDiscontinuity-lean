@@ -36,7 +36,8 @@ theorem one_le_U_of_vertical_loop (hN : Even N) (hM : Even M) (j : Fin M)
   change _ ≤ verticalMass _ _ (checkerArrows_compatible hN hM (rcSmoothing A)) j at hb
   omega
 
-/-- T2 lower bound for the exact corrected source events: B and C prime give
+/-- The lower bound in the implication B ∩ C′ ⇒ U = 1, for the exact corrected source
+events: B and C prime give
 at least one pair of vertical loop windings. -/
 theorem one_le_U_of_barrier_and_CPrime
     (hN : Even N) (hM : Even M) (hNp : 0 < N) (hMp : 0 < M)
@@ -59,8 +60,8 @@ theorem one_le_U_of_barrier_and_CPrime
   apply one_le_U_of_vertical_loop hN hM ⟨0,hMp⟩ A
   exact exists_vertical_loop_of_aligned_vertical_cycle hN hM hNp hMp ⟨0,hMp⟩ A hX hY
 
-/-- T2: the exact statement consumed by the proof of (3.15), with no topological premise
-added. -/
+/-- B ∩ C′ forces U = 1: the exact statement consumed by the proof of (3.15), with no
+topological premise added. -/
 theorem barrier_and_CPrime_imply_U_eq_one
     (hN : Even N) (hM : Even M) (hNp : 0 < N) (hMp : 0 < M)
     (hNdiv : 8 ∣ N) (n : ℕ) (hnN : 8*n ≤ N)

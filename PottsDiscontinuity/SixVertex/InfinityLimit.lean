@@ -5,8 +5,9 @@ public import PottsDiscontinuity.SixVertex.Interlace
 /-!
 # The entrywise infinite-anisotropy limit
 
-Lemma 3.2, arXiv:1611.09877v2, lines 1219–1229. The definition includes
-`n = 0`, where the limit is `(2)`, rather than the adjacency formula valid for `n > 0`.
+Lemma 3.2 of arXiv:1611.09877v2 and its proof (the normalized limit `V^{[n]}_∞`). The
+definition includes `n = 0`, where the limit is `(2)`, rather than the adjacency formula valid
+for `n > 0`.
 No path-counting or spectral assertion is used here.
 -/
 

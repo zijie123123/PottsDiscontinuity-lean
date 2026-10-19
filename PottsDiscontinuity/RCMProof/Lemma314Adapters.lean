@@ -21,9 +21,10 @@ theorem corrected_lemma314_proved : corrected_lemma314 := by
   intro q hzero
   exact TorusLoops.lemma_3_14_corrected_limsup q hzero
 
-/-- The square-box premise required by the corrected Lemma 3.14 follows from the nonpercolation
-conclusion in Route B. The rectangle and critical parameter records are the
-same record, and the free-box limit is unique. -/
+/-- The square-box premise required by the corrected Lemma 3.14 follows from the absence of
+percolation for the critical free measure, which is derived in `RCMProof/RouteB.lean` from the
+positive lower bound on the inverse correlation length. The rectangle and critical parameter
+records are the same record, and the free-box limit is unique. -/
 theorem lemma314_square_boundary_decay_of_nonpercolation
     (q : Set.Ici (1 : ℝ)) (μ : MeasureTheory.Measure FK.LatticeConfiguration)
     (hμ : IsRCInfiniteVolumeLimit (FK.criticalParameters q).toP

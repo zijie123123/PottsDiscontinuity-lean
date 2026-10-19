@@ -193,7 +193,9 @@ theorem rotatedBoundaryConnectionProbability_tendsto_zero_of_ae_finite_cluster
   rw [hseq]
   exact hprobSmall
 
-/-- Route B for Lemma 3.14: (3.24) and Identity (4.4) give a positive rate;
+/-- Absence of percolation for the critical free measure, derived from the positive lower
+bound on the inverse correlation length, as the input of Lemma 3.14: (3.24) and Identity (4.4)
+give a positive rate;
 the resulting exponential decay makes the free origin cluster finite a.s.,
 and the rotated boundary connection probability tends to zero. -/
 theorem routeB_free_nonpercolation_and_boundary_decay

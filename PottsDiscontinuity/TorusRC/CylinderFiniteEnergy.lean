@@ -94,8 +94,8 @@ theorem torusRCProbability_close_seam (hN : Even N) (hM : Even M)
   rw [hclosed, hcard] at hfinite
   simpa [E, TorusLoops.phi_T_probability] using hfinite
 
-/-- The T3 premise turns the vertical-winding tail into the seam-closed
-cylinder crossing event. -/
+/-- The premise `hUr` (`U ≥ r` forces `r` distinct bottom-to-top clusters after the seam
+row is closed) turns the vertical-winding tail into the seam-closed cylinder crossing event. -/
 theorem torusRCVerticalTail_subset_seamClosedCrossings
     (hN : Even N) (hM : Even M) (hMpos : 0 < M) (r : ℕ)
     (hhUr : hUr hN hM hMpos r) :
@@ -104,7 +104,7 @@ theorem torusRCVerticalTail_subset_seamClosedCrossings
   intro A hA
   exact hhUr A hA
 
-/-- Under the T3 premise, the winding tail is bounded by the probability of
+/-- Under the premise `hUr`, the winding tail is bounded by the probability of
 the distinct-crossing event with the seam closed, up to its finite-energy
 cost. This is the seam-cut step in the reduction to (3.21). -/
 theorem torusRCVerticalTail_close_seam_le

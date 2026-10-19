@@ -68,7 +68,8 @@ theorem toSym2_injective : Function.Injective toSym2 := by
   rintro ⟨⟨x, y⟩, ax⟩ ⟨⟨z, w⟩, az⟩ h
   cases ax <;> cases az <;>
     simp only [toSym2, source, target, Sym2.eq_iff, Prod.mk.injEq] at h
-  all_goals rcases h with ⟨h₁, h₂⟩ | ⟨h₁, h₂⟩ <;> simp_all <;> omega
+  all_goals rcases h with ⟨h₁, h₂⟩ | ⟨h₁, h₂⟩ <;> simp_all
+  all_goals omega
 
 /-- Every actual nearest-neighbor edge has a normalized bond representative. -/
 theorem exists_of_adj {u v : LatticeVertex} (h : squareLattice.Adj u v) :

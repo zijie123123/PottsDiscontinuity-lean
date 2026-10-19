@@ -7,8 +7,10 @@ public import PottsDiscontinuity.TorusLoops.HorizontalHomology
 # Bounds for loops with nonzero coordinate winding
 
 For a directed smoothed loop, nonzero intersection with either coordinate seam
-is its nonzero torus winding class. By ruling OR-2 this is the fixed
-formalization of the source statistic `ell₀`. No homotopy classification is used.
+is its nonzero torus winding class. The source statistic `ell₀`, the number of loops that
+are not retractable to a point on the torus, is formalized throughout as the number of loops
+with nonzero homological winding, i.e. nonzero algebraic intersection with the vertical or the
+horizontal seam. No homotopy classification is used.
 -/
 
 @[expose] public section

@@ -91,7 +91,8 @@ noncomputable def verticalMass (ω : ArrowConfig N M) (s : Smoothing N M)
   ∑ q : DirectedLoop ω s h, (loopVertical ω s h j q).natAbs
 
 /-- A configuration with `N/2-r` up arrows has at least `2r` absolute vertical loop crossings.
-This is the counting part of `sec:RCM#up-arrow-count`; it does not use parallelism of loops. -/
+This is the counting part of the up-arrow counting argument in the proof of Corollary 3.13
+(Section 3.3.1); it does not use parallelism of loops. -/
 theorem two_mul_sector_le_verticalMass (hN : Even N) (ω : ArrowConfig N M)
     (s : Smoothing N M) (h : CompatibleConfig ω s) (j : Fin M) {r : ℕ}
     (hr : ω.absUp + r = N / 2) : 2 * r ≤ verticalMass ω s h j := by

@@ -8,16 +8,19 @@ project:
     Harel, Manolescu and Tassion (arXiv:1611.09877v2). For the q-state Potts model on the square
     lattice with q > 4, at beta_c = log(1 + sqrt q), the q + 1 box-limit Gibbs measures are distinct and
     ergodic, each monochromatic measure gives its own colour probability greater than 1/q at the
-    origin, and the diagonal correlation length is lambda + 2 sum_{k >= 1} (-1)^k tanh(k lambda) / k,
+    origin, and the inverse correlation length in the diagonal direction is
+    lambda + 2 sum_{k >= 1} (-1)^k tanh(k lambda) / k,
     where cosh lambda = sqrt(q) / 2, a positive number. For the random-cluster model on the square
     lattice with q > 4 at p_c = sqrt(q) / (1 + sqrt q), the free and wired box-limit measures differ,
     the wired measure has an infinite cluster almost surely, the free two-point function between 0
     and the diagonal site x_n decays at the same exact rate, and that rate equals
     sum_{k >= 0} 4 / ((2k + 1) sinh(pi^2 (2k + 1) / (2 lambda))), which is equivalent to
-    8 exp(-pi^2 / sqrt(q - 4)) as q decreases to 4. Every external result the paper relies on
-    (Edwards-Sokal coupling, FKG and comparison inequalities, Burton-Keane, planar duality, the
-    coordinate Bethe ansatz, Perron-Frobenius, the analytic implicit function theorem, Brouwer's
-    fixed-point theorem) is proved or taken from Mathlib; the only axioms are propext,
+    8 exp(-pi^2 / sqrt(q - 4)) as q decreases to 4. The external results the paper cites and the
+    proof uses (Edwards-Sokal coupling, FKG and comparison inequalities, finite energy, ergodicity
+    and the 0-1 law for infinite clusters, planar self-duality, the coordinate Bethe ansatz of the
+    companion paper arXiv:1611.09909, Perron-Frobenius, the analytic implicit function theorem) are
+    proved or taken from Mathlib; uniqueness of the infinite cluster is not needed, and Brouwer's
+    fixed-point theorem comes from a vendored library. The only axioms are propext,
     Classical.choice and Quot.sound.
   authors:
     - "Zijie Zhuang"
@@ -45,10 +48,28 @@ sources:
     location: "Theorem 1.1 (p. 2); Theorem 1.2 with equations (1.2) and (1.3) (p. 4); proofs in Sections 2-4"
     relationship: "formalizes"
     note: >-
-      The statements of Theorems 1.1 and 1.2 are formalized with the representation choices listed
-      under fidelity; the proofs follow the paper, with the repairs of individual proof steps listed
-      under fidelity. The PDF used (arXiv v2) has SHA-256
+      Published in Ann. Sci. Ec. Norm. Super. (4) 54 (2021), no. 6, 1363-1413; the formalization
+      follows arXiv v2. The statements of Theorems 1.1 and 1.2 are formalized with the
+      representation choices listed under fidelity; the proofs follow the paper, with the repairs
+      of individual proof steps listed under fidelity. The PDF used (arXiv v2) has SHA-256
       11556ec3855cee0b91212b98a82dce7456883915c20cceab05d6bd632f6f0eb7.
+    license: "arXiv non-exclusive distribution licence (nonexclusive-distrib/1.0); not redistributed here"
+    author_endorsement: "not-contacted"
+  - title: "The Bethe ansatz for the six-vertex and XXZ models: an exposition"
+    authors:
+      - "Hugo Duminil-Copin"
+      - "Maxime Gagnebin"
+      - "Matan Harel"
+      - "Ioan Manolescu"
+      - "Vincent Tassion"
+    id: "arXiv:1611.09909v1"
+    type: "article"
+    location: "the coordinate Bethe ansatz for the six-vertex transfer matrix, the Perron-Frobenius property of its blocks and the trace formula (cited as [8] in the main paper)"
+    relationship: "formalizes"
+    note: >-
+      Only the results of this companion paper that the main paper uses are formalized
+      (`PottsDiscontinuity/BetheAnsatz/`, `PottsDiscontinuity/SixVertex/`), with corrections of some
+      proof steps recorded in the module documentation.
     license: "arXiv non-exclusive distribution licence (nonexclusive-distrib/1.0); not redistributed here"
     author_endorsement: "not-contacted"
 
@@ -59,8 +80,9 @@ status:
     Formalized: Theorem 1.1 in full and Theorem 1.2 in full (items 1-3, equation (1.2), positivity of
     its right-hand side, the identity (1.3) and the asymptotic equivalence as q decreases to 4), as
     the three Lean theorems PottsDiscontinuity.potts_theorem_1_1, PottsDiscontinuity.rc_theorem_1_2
-    and PottsDiscontinuity.rc_theorem_1_2_positivity_eq_1_3, together with every intermediate result
-    of the paper they depend on. Not formalized: that beta_c = log(1 + sqrt q) and
+    and PottsDiscontinuity.rc_theorem_1_2_positivity_eq_1_3, together with the intermediate results
+    of the paper (and of the companion paper arXiv:1611.09909) on which their proofs rely, some in
+    corrected form (see fidelity). Not formalized: that beta_c = log(1 + sqrt q) and
     p_c = sqrt(q) / (1 + sqrt q) are the critical points (they enter as explicit values), and
     convergence of the finite-volume measures along arbitrary exhaustions of the lattice (the
     infinite-volume measures are limits along the boxes [-n, n]^2).
@@ -129,15 +151,22 @@ fidelity:
     are Set.Icc 1 q and boundary conditions are Fin (q + 1) and Fin 2; ergodicity is invariance
     under all translations plus triviality of translation-invariant events; the alternating series is
     the limit of its ordered partial sums; Theorem 1.2 is split into two Lean theorems (items 1-3
-    with (1.2), and positivity with (1.3)). Repairs of proof steps (statements unaffected): the event
-    C in the proof of Lemma 3.15 is replaced by a corrected local connection event C' (the original
-    implication B and C imply U = 1 fails, with a formal counterexample for N = M = 8, n = 1);
-    Lemma 3.14 is proved in a corrected limsup form; the dominance of Lambda_0 over all sectors in
+    with (1.2), and positivity with (1.3)); finite volumes are induced subgraphs on finite vertex
+    sets, with boundary the vertices having a neighbour outside. Lean's Real.log x is log |x|, so the
+    limit statements in Theorem 1.1(3) and Theorem 1.2(3) do not by themselves assert positivity of
+    the quantities inside the logarithm, which the paper's notation presupposes. Repairs of proof
+    steps (statements unaffected), including: the event C in the proof of Lemma 3.15 is replaced by
+    a corrected local connection event C' (the original implication "B and C imply U = 1" fails,
+    e.g. for N = M = 8, n = 1); Lemma 3.14 is proved in a corrected limsup form with the additional
+    input that the free one-arm probability on the rotated lattice tends to 0, which is proved
+    separately from (3.24) and identity (4.4); the dominance of Lambda_0 over all sectors in
     Section 3.3 is proved separately; the identity Z(M) = Tr((V^[n]_infinity)^M) in the proof of
     Lemma 3.2 fails for r >= 2 and the conclusion is proved by another count; the endpoint Delta_0 in
     Corollary 3.4 is handled separately; the logarithmic singularity in (3.8) is handled by a
     truncation estimate; absence of percolation for the critical free measure (q > 4) is derived
-    from the finite correlation length instead of Zhang's argument.
+    from the finite correlation length instead of Zhang's argument; misprints used by the proof are
+    corrected (the relation between p_c and beta_c, the factor 1 - 1/q in the consequences of the
+    Edwards-Sokal coupling), as are some proof steps of the companion paper.
 
 review:
   status: "agent-reviewed"

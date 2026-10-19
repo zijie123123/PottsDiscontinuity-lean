@@ -28,25 +28,25 @@ the statement layer, which was fixed before the proofs were written and is mirro
 | [`Frozen/`](#frozen) | Statement layer | 20 | 582 | The exact statements of the three main theorems (`Theorem11`, `Theorem12`, `Theorem12Eq13`) and, in `Frozen/Defs/`, the 17 definitions they use (square lattice, boxes and boundaries, finite-volume Potts and random-cluster measures, infinite-volume limits along boxes, ergodicity, critical parameters, diagonal site). These declarations are reproduced verbatim in `Challenge.lean`; each theorem is proved by `exact` of its provider. |
 | [`Provider/`](#provider) | Statement layer | 3 | 181 | The proofs of the three main theorems, each a short assembly: Theorem 1.1 from the random-cluster rate (`PottsThm/`), Theorem 1.2 items 1–3 from the random-cluster assembly (`RCMProof/`) and the crossing estimate (3.19) (`TorusCrossing/`), and Theorem 1.2 positivity/(1.3) from Section 4 (`Analysis/`). |
 | [`PottsThm/`](#pottsthm) | Theorem 1.1 | 20 | 4,270 | Theorem 1.1 deduced from the random-cluster results through the Edwards–Sokal coupling: identification of the Potts box limits, spin formulas with the factor 1 − 1/q, distinctness of the q + 1 measures, ergodicity, and the Potts correlation length. |
-| [`Potts/`](#potts) | Theorem 1.1 | 61 | 6,048 | The finite-volume Potts model with the paper's literal boundary term, the Edwards–Sokal coupling in finite volume (ghost-vertex construction), and existence of the Potts box limits with their connection-data description. |
-| [`RCMProof/`](#rcmproof) | Theorem 1.2 | 12 | 3,346 | Assembly of Theorem 1.2: equation (1.7) at the critical point, the lower bound on the inverse correlation length, absence of percolation for the critical free measure, the corrected Lemma 3.14, and the final assembly of items 1–3 with (1.2). |
+| [`Potts/`](#potts) | Theorem 1.1 | 61 | 6,051 | The finite-volume Potts model with the paper's literal boundary term, the Edwards–Sokal coupling in finite volume (ghost-vertex construction), and existence of the Potts box limits with their connection-data description. |
+| [`RCMProof/`](#rcmproof) | Theorem 1.2 | 12 | 3,350 | Assembly of Theorem 1.2: equation (1.7) at the critical point, the lower bound on the inverse correlation length, absence of percolation for the critical free measure, the corrected Lemma 3.14, and the final assembly of items 1–3 with (1.2). |
 | [`Analysis/`](#analysis) | Section 4 | 6 | 3,630 | Section 4 of the paper: the identity (4.4) behind (1.3), positivity of λ + 2S, the asymptotics as q ↘ 4, partial-fraction and hyperbolic series, and the Fourier/τ integrals used for the correlation length. |
-| [`Bethe/`](#bethe) | Section 2 | 115 | 15,991 | Section 2: the functions Θ and k, the discrete Bethe equations, Proposition 2.1 (the densities ρ and τ), Theorem 2.3 (existence of Bethe roots, analytic in Δ), Theorems 2.6 and 2.9 (asymptotics of root densities), and the eigenvalue-ratio limits in both parities. |
-| [`BetheAnsatz/`](#betheansatz) | Section 3.1 | 63 | 8,770 | Theorem 3.1, the coordinate Bethe ansatz for the six-vertex transfer matrix in every particle sector, including the zero-root (derivative-corrected) branch. |
-| [`SixVertex/`](#sixvertex) | Sections 3.1–3.3 | 51 | 9,017 | The six-vertex model: transfer matrix, block decomposition and trace formulas, Lemma 3.2 (the operator at Δ = −∞ and its simple top eigenvalue), Corollary 3.4 (the analytic Perron–Frobenius eigenvalue family), and the Section 3.3 bounds on partition-function ratios and dominance. |
+| [`Bethe/`](#bethe) | Section 2 | 115 | 15,997 | Section 2: the functions Θ and k, the discrete Bethe equations, Proposition 2.1 (the densities ρ and τ), Theorem 2.3 (existence of Bethe roots, analytic in Δ), Theorems 2.6 and 2.9 (asymptotics of root densities), and the eigenvalue-ratio limits in both parities. |
+| [`BetheAnsatz/`](#betheansatz) | Section 3.1 | 63 | 8,772 | Theorem 3.1, the coordinate Bethe ansatz for the six-vertex transfer matrix in every particle sector, including the zero-root (derivative-corrected) branch. |
+| [`SixVertex/`](#sixvertex) | Sections 3.1–3.3 | 51 | 9,020 | The six-vertex model: transfer matrix, block decomposition and trace formulas, Lemma 3.2 (the operator at Δ = −∞ and its simple top eigenvalue), Corollary 3.4 (the analytic Perron–Frobenius eigenvalue family), and the Section 3.3 bounds on partition-function ratios and dominance. |
 | [`LinearAlgebra/`](#linearalgebra) | Tools | 4 | 864 | Perron–Frobenius theory for symmetric irreducible matrices and supporting spectral facts. |
 | [`AnalyticTools/`](#analytictools) | Tools | 5 | 630 | Real-analytic inverse and implicit function theorems, the identity theorem, and analytic dependence of simple eigenvalues. |
 | [`Infra/`](#infra) | Tools | 3 | 194 | Uniqueness of cylinder limits, positivity of random-cluster partition functions, and λ = arcosh(√q / 2). |
 | [`FK/`](#fk) | Random-cluster model | 63 | 6,738 | A library for the finite random-cluster (FK) model: laws and boundary conditions, FKG and comparison inequalities, domain Markov property, finite energy, box limits, wired/free comparisons, and bridges to the definitions in `Frozen/Defs/`. |
-| [`RCInfinite/`](#rcinfinite) | Random-cluster model | 18 | 2,418 | Infinite-volume random-cluster measures: translation invariance, ergodicity, the 0–1 law for an infinite cluster, Burton–Keane uniqueness, and exhaustion by boxes. |
-| [`Duality/`](#duality) | Random-cluster model | 69 | 10,841 | Planar duality: dual configurations, self-duality at p_c in finite and infinite volume, crossing duality, discrete flow/Euler arguments, and the consequences of a positive rate (items 1–2 of Theorem 1.2). |
+| [`RCInfinite/`](#rcinfinite) | Random-cluster model | 18 | 2,418 | Infinite-volume random-cluster measures: translation invariance and mixing, ergodicity, the 0–1 law for an infinite cluster, finite energy and comparison, and exhaustion by boxes. (Uniqueness of the infinite cluster is not needed.) |
+| [`Duality/`](#duality) | Random-cluster model | 69 | 10,842 | Planar duality: dual configurations, self-duality at p_c in finite and infinite volume, crossing duality, discrete flow/Euler arguments, and the consequences of a positive rate (items 1–2 of Theorem 1.2). |
 | [`CorrLength/`](#corrlength) | Section 3.3 | 6 | 1,265 | The correlation length (3.13): its existence by supermultiplicativity on the rotated lattice and the relevant connection events. |
 | [`Zhang/`](#zhang) | Section 3.3 | 1 | 126 | Boundary-connection limits in rotated boxes, used for absence of percolation of the critical free measure. |
-| [`Torus/`](#torus) | Section 3.3 | 67 | 6,958 | The random-cluster / loop / six-vertex correspondence on the torus: Lemmas 3.9–3.12 and Corollary 3.13. |
-| [`TorusLoops/`](#torusloops) | Section 3.3 | 37 | 7,717 | The loop representation on the torus: loop densities, winding loops, tail probabilities and exploration fibres used for Lemma 3.14. |
-| [`TorusRC/`](#torusrc) | Section 3.3 | 65 | 6,999 | Random-cluster measures on the torus and Lemma 3.15: equations (3.15) and (3.16), cylinder and barrier events, and the limits relating torus and planar quantities. |
+| [`Torus/`](#torus) | Section 3.3 | 67 | 6,961 | The random-cluster / loop / six-vertex correspondence on the torus: Lemmas 3.9–3.12 and Corollary 3.13. |
+| [`TorusLoops/`](#torusloops) | Section 3.3 | 37 | 7,720 | The loop representation on the torus: loop densities, winding loops, tail probabilities and exploration fibres used for Lemma 3.14. |
+| [`TorusRC/`](#torusrc) | Section 3.3 | 65 | 7,003 | Random-cluster measures on the torus and Lemma 3.15: equations (3.15) and (3.16), cylinder and barrier events, and the limits relating torus and planar quantities. |
 | [`TorusExploration/`](#torusexploration) | Section 3.3 | 39 | 2,988 | Cluster exploration on the torus and equation (3.16): cylinder measures dominated by free measures. |
-| [`TorusTopology/`](#torustopology) | Section 3.3 | 114 | 13,752 | Discrete topology on the torus and the planar lattice: winding numbers, turning classifications of loops, the structure of configurations with U = 1, and planar cover graphs. |
+| [`TorusTopology/`](#torustopology) | Section 3.3 | 114 | 13,757 | Discrete topology on the torus and the planar lattice: winding numbers, turning classifications of loops, the structure of configurations with U = 1, and planar cover graphs. |
 | [`TorusCrossing/`](#toruscrossing) | Section 3.3 | 31 | 6,540 | The crossing estimate (3.19): crossing probabilities of mixed-boundary squares are at least 1/(1 + q), via duality on the rotated lattice. |
 
 ## File index
@@ -275,7 +275,7 @@ One line per module, taken from the module documentation (or, where a module has
 | [`RatioMidpointBounds`](Bethe/RatioMidpointBounds.lean) | Summable bounds for the logarithms of odd midpoint factors |
 | [`RatioMidpointLimit`](Bethe/RatioMidpointLimit.lean) | The source odd midpoint product tends to 2/π The zero midpoint is omitted. |
 | [`RatioMidpointPointwise`](Bethe/RatioMidpointPointwise.lean) | Half-integer root scales give the logarithmic Wallis factors |
-| [`RatioOddCoefficient`](Bethe/RatioOddCoefficient.lean) | The zero-root prefactor: positivity and its leading asymptotic Source L1531–1539. |
+| [`RatioOddCoefficient`](Bethe/RatioOddCoefficient.lean) | The zero-root prefactor: positivity and its leading asymptotic Source: Section 3.2 of arXiv:1611.09877v2, proof of (1.7) for odd `r`: the prefactor (A) of `Λ_r(N) / Λ₀(N)` and its asymptotic `(A) = (c²/2) · 2πρ(0) N + o(… |
 | [`RatioOddLimit`](Bethe/RatioOddLimit.lean) | The complete odd-deficit eigenvalue ratio limit |
 | [`RatioOddLogCorrection`](Bethe/RatioOddLogCorrection.lean) | Exact logarithmic bookkeeping for the odd aligned-root quotient |
 | [`RatioOddQuotient`](Bethe/RatioOddQuotient.lean) | Exact five-factor expression for the odd eigenvalue quotient |
@@ -284,7 +284,7 @@ One line per module, taken from the module documentation (or, where a module has
 | [`RatioPole`](Bethe/RatioPole.lean) | The central simple pole of the spectral factor The regular part is given by an explicit sinc formula. |
 | [`RatioPositiveRoots`](Bethe/RatioPositiveRoots.lean) | The positive half of the source full-root family |
 | [`RatioPredecessor`](Bethe/RatioPredecessor.lean) | Canonical left-root projection for the interior quadrature The projection chooses the last root at or to the left of x. |
-| [`RatioProducts`](Bethe/RatioProducts.lean) | Symmetric products in the two Bethe eigenvalue formulas Source: L1500–1504 and L1531–1535. |
+| [`RatioProducts`](Bethe/RatioProducts.lean) | Symmetric products in the two Bethe eigenvalue formulas Source: Section 3.2 of arXiv:1611.09877v2 (proof of Theorem 1.3): the formula `Λ₀(N) = 2 ∏ \|M(e^{i p_j})\|` in the proof of (1.6), and the factorization of `Λ_r(N) /… |
 | [`RatioProfile`](Bethe/RatioProfile.lean) | The logarithmic spectral profile and its singular derivative The value at zero is the total Lean value of the original spectral formula; all differential assertions are on the punctured fundamental interval. |
 | [`RatioScaledIncrement`](Bethe/RatioScaledIncrement.lean) | Moving pairs of roots and scaled logarithmic increments |
 | [`RatioSecondDerivative`](Bethe/RatioSecondDerivative.lean) | Second derivative control for the odd midpoint correction |
@@ -330,10 +330,10 @@ One line per module, taken from the module documentation (or, where a module has
 | Module | Summary |
 |---|---|
 | [`Amplitude`](BetheAnsatz/Amplitude.lean) | Adjacent transpositions in the coordinate Bethe amplitudes Companion paper, Lemma `lem:ratios`, equation (8). |
-| [`BoundaryLimit`](BetheAnsatz/BoundaryLimit.lean) | The corrected scalar boundary limit in Lemma T₀ Companion source, lines 963 and 969: the boundary bracket must be `z^(-N) - 1`. |
+| [`BoundaryLimit`](BetheAnsatz/BoundaryLimit.lean) | The corrected scalar boundary limit in Lemma 3.7 of the companion paper In the proof of Lemma 3.7 (the limit of `T₀(ε)`) of the companion paper [8], arXiv:1611.09909 (The Bethe ansatz for the six-vertex and XXZ models: a… |
 | [`Conventions`](BetheAnsatz/Conventions.lean) | Coordinates, nonzero amplitudes, and the full-matrix/block bridge The paper's positions `1,...,N` are our increasing `Fin N` positions plus one. |
 | [`Cyclic`](BetheAnsatz/Cyclic.lean) | Cyclic permutation of the coordinate Bethe amplitudes Companion paper, Lemma `lem:ratios`, equation (11). |
-| [`Defs`](BetheAnsatz/Defs.lean) | Coordinate Bethe Ansatz: the objects of Theorem 3.1 Main source: arXiv:1611.09877v2, `thm:BA`, lines 1165–1189. |
+| [`Defs`](BetheAnsatz/Defs.lean) | Coordinate Bethe Ansatz: the objects of Theorem 3.1 Main source: arXiv:1611.09877v2, Theorem 3.1. |
 | [`GapGeometric`](BetheAnsatz/GapGeometric.lean) | Geometric sums in an integer gap Companion paper, equation `eq:EmptySetCalc`. |
 | [`GapGeometry`](BetheAnsatz/GapGeometry.lean) | Finite cyclic gap configurations Companion paper, `cor:expressionRsi` and the domain of the sum `R_σ`. |
 | [`GapInclusionExclusion`](BetheAnsatz/GapInclusionExclusion.lean) | Inclusion-exclusion for the finite cyclic gap sum Companion paper, equation `eq:RS`. |
@@ -426,7 +426,7 @@ One line per module, taken from the module documentation (or, where a module has
 | [`InfinityHalfSpectrum`](SixVertex/InfinityHalfSpectrum.lean) | Half filling: largest eigenvalue and simplicity |
 | [`InfinityIrreducible`](SixVertex/InfinityIrreducible.lean) | Irreducibility on independent row states A connected component has a minimum of the sum of occupied positions. |
 | [`InfinityLiftedChoices`](SixVertex/InfinityLiftedChoices.lean) | Indexed choices and collision cancellation on shifted lifts |
-| [`InfinityLimit`](SixVertex/InfinityLimit.lean) | The entrywise infinite-anisotropy limit Lemma 3.2, arXiv:1611.09877v2, lines 1219–1229. |
+| [`InfinityLimit`](SixVertex/InfinityLimit.lean) | The entrywise infinite-anisotropy limit Lemma 3.2 of arXiv:1611.09877v2 and its proof (the normalized limit `V^{[n]}_∞`). |
 | [`InfinityMomentum`](SixVertex/InfinityMomentum.lean) | Evaluation of the centered momentum product |
 | [`InfinityMoves`](SixVertex/InfinityMoves.lean) | Moves on independent row states Rotation is a genuine positive edge of the limiting matrix. |
 | [`InfinityPerron`](SixVertex/InfinityPerron.lean) | Perron eigenvalue of the restriction and the full limiting block |
@@ -441,12 +441,12 @@ One line per module, taken from the module documentation (or, where a module has
 | [`LocalWeight`](SixVertex/LocalWeight.lean) | The weight `w(ω)` as a product of local vertex weights For an arrow configuration `ω`, `w(ω) = ∏_v localWeight(v)` where the local weight of a vertex is `a`, `b`, `c` according to its type and `0` if the vertex violates … |
 | [`PathSum`](SixVertex/PathSum.lean) | Trace of a matrix power as a sum over closed chains For a square matrix `A` indexed by a finite type `S` and `m ≥ 1`, `tr (A ^ m) = ∑_{x : Fin m → S} ∏_{j : Fin m} A (x j) (x (j + 1 mod m))`. |
 | [`RowTransfer`](SixVertex/RowTransfer.lean) | One row of the torus: the transfer matrix `Ṽ` equals `V` Companion paper arXiv:1611.09909v1, §4 (Lemma `lem:Interlacement` and Corollary `cor:MatrixEquality`). |
-| [`Sec33Dominance`](SixVertex/Sec33Dominance.lean) | Abstract assembly of the six-vertex dominance gap The repaired large-width argument in the dependency graph has external Potts-model inputs. |
+| [`Sec33Dominance`](SixVertex/Sec33Dominance.lean) | Abstract assembly of the six-vertex dominance gap The repaired large-width argument for the six-vertex dominance gap (Section 3.3) has external Potts-model inputs. |
 | [`Sec33Partition`](SixVertex/Sec33Partition.lean) | Six-vertex sector maxima and trace bounds This file packages the finite-sector maximum of the block Perron roots and the trace estimates used in §3.3. |
 | [`Sec33Ratios`](SixVertex/Sec33Ratios.lean) | Growth rates of six-vertex sector ratios The full partition function grows at the largest block Perron root. |
 | [`Sec33RealAnalysis`](SixVertex/Sec33RealAnalysis.lean) | Exponential-growth comparison for the dominance repair This real-analysis lemma isolates the inequality behind the large-`N` repair. |
 | [`Sec33Symmetry`](SixVertex/Sec33Symmetry.lean) | Arrow-flip symmetry of the six-vertex blocks The global arrow flip sends a row state to its complement. |
-| [`TraceFormula`](SixVertex/TraceFormula.lean) | The trace formulas `Z_6V(N,M) = tr (V^M)` and `Z^{(r)}_{6V}(N,M) = tr ((V^{[N/2-r]})^M)` Companion paper arXiv:1611.09909v1, Proposition `prop:transfer-matrix` (proof in §4), and the main paper arXiv:1611.09877v2, §3.3 (… |
+| [`TraceFormula`](SixVertex/TraceFormula.lean) | The trace formulas `Z_6V(N,M) = tr (V^M)` and `Z^{(r)}_{6V}(N,M) = tr ((V^{[N/2-r]})^M)` Companion paper [8], arXiv:1611.09909v1, Proposition 2.1 (proof in §4), and the main paper arXiv:1611.09877v2, §3.3 (the trace form… |
 | [`TransferMatrix`](SixVertex/TransferMatrix.lean) | Elementary properties of the transfer matrix `V` and its blocks `V^{[n]}` * `V` is symmetric (`transferMatrix_transpose`), has nonnegative entries for `c ≥ 0`, and is block diagonal with respect to the number of up arrow… |
 
 ### LinearAlgebra
@@ -837,7 +837,7 @@ One line per module, taken from the module documentation (or, where a module has
 | [`SquareBoxComparison`](TorusRC/SquareBoxComparison.lean) | Comparison of rotated-lattice image boxes with native lifted square boxes |
 | [`TiltDuality`](TorusRC/TiltDuality.lean) | Complementary duality invariance of the tilted torus law |
 | [`TiltProbability`](TorusRC/TiltProbability.lean) | Comparing the self-dual tilt with the standard torus law |
-| [`TopologyBounds`](TorusRC/TopologyBounds.lean) | Quantitative reductions with the torus topology premises discharged The premises T2 and T3 are discharged by `TorusTopology.hBCU_proved` and `TorusTopology.hUr_proved`. |
+| [`TopologyBounds`](TorusRC/TopologyBounds.lean) | Quantitative reductions with the torus topology premises discharged The premises that B ∩ C′ forces `U = 1` and that `U ≥ r` forces `r` distinct bottom-to-top clusters after the seam row is closed are discharged by `Toru… |
 | [`WindingClosure`](TorusRC/WindingClosure.lean) | The finite terminal zigzag and the source winding event |
 | [`WindingEnergy`](TorusRC/WindingEnergy.lean) | Finite-energy completion of the source's primal winding event |
 | [`WindingPeriods`](TorusRC/WindingPeriods.lean) | Repeating a genuine lifted vertical period |
@@ -897,7 +897,7 @@ One line per module, taken from the module documentation (or, where a module has
 | [`ClusterVerticalValues`](TorusTopology/ClusterVerticalValues.lean) | The two possible nonzero vertical boundary values of one primal cluster. |
 | [`CompassWordBounds`](TorusTopology/CompassWordBounds.lean) | Uniform turn bounds for a return consisting of three straight segments. |
 | [`CompassWordTurning`](TorusTopology/CompassWordTurning.lean) | Algebra of the signed turn of finite compass words. |
-| [`CylinderCount`](TorusTopology/CylinderCount.lean) | T3: U at least r gives r distinct bottom-to-top clusters in the exact seam-closed cylinder. |
+| [`CylinderCount`](TorusTopology/CylinderCount.lean) | U at least r gives r distinct bottom-to-top clusters in the exact seam-closed cylinder (`hUr_proved`). |
 | [`CylinderCrossing`](TorusTopology/CylinderCrossing.lean) | Crossing the seam-closed cylinder from nonzero conserved vertical winding. |
 | [`IndexedWalk`](TorusTopology/IndexedWalk.lean) | Indexed diamond walks and their integral conserved-chain witnesses. |
 | [`IntegralBoundary`](TorusTopology/IntegralBoundary.lean) | Integral saturation of the actual ribbon face boundary map. |
@@ -1001,7 +1001,7 @@ One line per module, taken from the module documentation (or, where a module has
 | [`UnitWindingHomology`](TorusTopology/UnitWindingHomology.lean) | The complete homological form of U=1: the two essential loops have opposite classes (a,1) and (-a,-1), with no restriction on the integer a. |
 | [`UnitWindingStructure`](TorusTopology/UnitWindingStructure.lean) | The exact vertical support when U=1. |
 | [`UpperReturnGeometry`](TorusTopology/UpperReturnGeometry.lean) | A supporting-line return for a simple periodic lattice arc. |
-| [`VerticalSupport`](TorusTopology/VerticalSupport.lean) | The weaker T5 conclusion required by the sector estimate uses only the absolute winding mass, not classification of essential torus curves. |
+| [`VerticalSupport`](TorusTopology/VerticalSupport.lean) | The weak form of the vertical loop structure for U = 1 (at most two loops with nonzero vertical winding), required by the sector estimate, uses only the absolute winding mass, not classification of essential torus curves… |
 | [`WindingPhase`](TorusTopology/WindingPhase.lean) | An integer winding divisor gives a modular vertex phase, constant on seam-closed components. |
 | [`ZeroWindingTurning`](TorusTopology/ZeroWindingTurning.lean) | The contractible-loop turning classification, on the exact torus loop carrier `Torus.Loop` used in Corollary 3.13. |
 

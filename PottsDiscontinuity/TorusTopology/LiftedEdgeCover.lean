@@ -115,7 +115,7 @@ lemma edgeLift_x (e : Fin N × Fin M) (hx : e.1.val ≠ 0) (b : Bool)
   have hp' : ((prv e.1).val : ℤ) = (e.1.val : ℤ)-1 := by omega
   cases b <;> cases hc : checker e <;>
     simp only [edgeLift,edgeLiftRaw,faceEndpoint,faceEndpointRaw,hc,Bool.false_eq_true,
-      ite_true,ite_false] <;> first | rfl | exact hp'.symm
+      ite_true,ite_false] <;> exact hp'.symm
 
 /-- Every lift with the finite endpoint's canonical horizontal coordinate is a
 unique vertical deck translate of the explicit indexed-edge endpoint. -/

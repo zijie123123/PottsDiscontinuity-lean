@@ -3,12 +3,14 @@ module
 public import PottsDiscontinuity.BetheAnsatz.Defs
 
 /-!
-# The corrected scalar boundary limit in Lemma T₀
+# The corrected scalar boundary limit in Lemma 3.7 of the companion paper
 
-Companion source, lines 963 and 969: the boundary bracket must be `z^(-N) - 1`.
+In the proof of Lemma 3.7 (the limit of `T₀(ε)`) of the companion paper [8], arXiv:1611.09909
+(The Bethe ansatz for the six-vertex and XXZ models: an exposition), the boundary bracket must be
+`z^(-N) - 1`.
 The printed bracket `1 - z^(-N)` has the negative of the claimed limit.
 We prove the limits on the punctured complex neighborhood of `1`, using an exact
-finite-geometric-sum identity. This is only the scalar boundary calculation, not Lemma T₀
+finite-geometric-sum identity. This is only the scalar boundary calculation, not Lemma 3.7
 for the entire permutation sum.
 -/
 

@@ -8,7 +8,8 @@ public import PottsDiscontinuity.Bethe.Prop21Rho
 
 * `rho_pos`: `ρ_Δ(x) > 0` for every `Δ < -1` and every `x` (all terms of the sum in (2.1) are
   positive and `k' = Ξ_λ > 0`);
-* `rho_uniform_lower_bound` (node `sec:Bethe#m-rho-positive`): for `Δ₀ < -1` there is `m_ρ > 0`
+* `rho_uniform_lower_bound` (the constant `m_ρ > 0` used in Section 2.2, the infimum of `ρ`
+  over `x ∈ [-π, π]` and `Δ ≤ Δ₀`): for `Δ₀ < -1` there is `m_ρ > 0`
   with `ρ_Δ(x) ≥ m_ρ` for all `Δ ≤ Δ₀` and `x ∈ [-π, π]`.  The proof splits at `λ = 3`: for
   `λ ≥ 3` the cosine series `R = 1/2 + ∑ cos(mα)/cosh(λ m)` gives `R ≥ 1/4`; for `λ₀ ≤ λ ≤ 3`
   only the term `j = 0` of the periodised sech is kept; and `k' = Ξ_λ ≤ (e^λ+1)/(e^λ-1) ≤
@@ -180,8 +181,9 @@ theorem lamOf_mono {Δ Δ₀ : ℝ} (hΔ₀ : Δ₀ < -1) (h : Δ ≤ Δ₀) : l
   rw [Real.cosh_le_cosh, abs_of_pos h1, abs_of_pos h2] at this
   exact this
 
-/-- **Uniform lower bound** (node `m-rho-positive`): for every `Δ₀ < -1` there is `m_ρ > 0` with
-`ρ_Δ(x) ≥ m_ρ` for all `Δ ≤ Δ₀` and all `x ∈ [-π, π]`; an explicit constant is given. -/
+/-- **Uniform lower bound** (the constant `m_ρ` of Section 2.2): for every `Δ₀ < -1` there is
+`m_ρ > 0` with `ρ_Δ(x) ≥ m_ρ` for all `Δ ≤ Δ₀` and all `x ∈ [-π, π]`; an explicit constant is
+given. -/
 theorem rho_uniform_lower_bound {Δ₀ : ℝ} (hΔ₀ : Δ₀ < -1) :
     ∃ m : ℝ, 0 < m ∧ ∀ Δ : ℝ, Δ ≤ Δ₀ → ∀ x ∈ Icc (-π) π, m ≤ rho Δ x := by
   have hpi := Real.pi_pos

@@ -6,7 +6,9 @@ public import PottsDiscontinuity.Bethe.RatioProducts
 
 /-! # The zero-root prefactor: positivity and its leading asymptotic
 
-Source L1531–1539. The continuous derivative test is nonsingular, so
+Source: Section 3.2 of arXiv:1611.09877v2, proof of (1.7) for odd `r`: the prefactor (A) of
+`Λ_r(N) / Λ₀(N)` and its asymptotic `(A) = (c²/2) · 2πρ(0) N + o(N)`. The continuous derivative
+test is nonsingular, so
 Theorem 2.6 suffices; the offset theorem is not needed for this factor.
 -/
 

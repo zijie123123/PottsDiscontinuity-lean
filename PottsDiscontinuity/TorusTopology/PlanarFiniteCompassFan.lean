@@ -73,7 +73,7 @@ theorem primalCompassQuarterTurn_eq_sector_boundary_formula
   clear h hb
   rcases hk with hk | hk <;> subst k
   all_goals fin_cases a <;> fin_cases b
-  all_goals first | contradiction | skip
+  all_goals try contradiction
   all_goals
     norm_num [compassSectorBoundary] at h₀ h₁ h₂ h₃
     norm_num [primalCompassQuarterTurn]

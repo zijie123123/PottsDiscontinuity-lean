@@ -6,7 +6,9 @@ public import PottsDiscontinuity.Bethe.DiscreteCore
 /-!
 # Symmetric products in the two Bethe eigenvalue formulas
 
-Source: L1500–1504 and L1531–1535. These are scalar identities; no claim
+Source: Section 3.2 of arXiv:1611.09877v2 (proof of Theorem 1.3): the formula
+`Λ₀(N) = 2 ∏ |M(e^{i p_j})|` in the proof of (1.6), and the factorization of
+`Λ_r(N) / Λ₀(N)` in the proof of (1.7) for odd `r`. These are scalar identities; no claim
 identifying a scalar with a transfer-matrix eigenvalue is needed here.
 -/
 

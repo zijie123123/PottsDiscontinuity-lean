@@ -8,7 +8,9 @@ public import PottsDiscontinuity.Frozen.Defs.RCCriticalParameter
 # Edwards–Sokal parameters
 
 The bond probability is `1 - exp (-β)`. This also verifies the corrected
-parameter identity in consequence 1 of Theorem 3.19 (source misprint E1).
+parameter identity in consequence 1 of Theorem 3.19: the source prints `p_c = 1 - e^{β_c}`,
+whereas the coupling `p = 1 - e^{-β}` gives `p_c = 1 - e^{-β_c}`, which holds for the explicit
+values `β_c = log (1 + √q)` and `p_c = √q / (1 + √q)`.
 -/
 
 @[expose] public section
@@ -43,7 +45,8 @@ def fkParameters (q : ℕ) (hq : 2 ≤ q) (β : ℝ) (hβ : 0 < β) : FK.Paramet
 @[simp] theorem fkParameters_edgeParameter (q : ℕ) (hq : 2 ≤ q) (β : ℝ) (hβ : 0 < β) :
     FK.edgeParameter (fkParameters q hq β hβ) = 1 - Real.exp (-β) := rfl
 
-/-- The explicit critical parameters satisfy the corrected sign in E1. -/
+/-- The explicit critical parameters satisfy the corrected identity `p_c = 1 - e^{-β_c}`
+(the source prints `p_c = 1 - e^{β_c}` in consequence 1 of Theorem 3.19). -/
 theorem bondProbability_pottsCriticalBeta (q : ℕ) (hq : 2 ≤ q) :
     bondProbability (pottsCriticalBeta q) =
       (rcCriticalParameter ⟨(q : ℝ), by

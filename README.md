@@ -7,14 +7,18 @@ A complete Lean 4 / Mathlib formalization of the two main theorems of
 
 > H. Duminil-Copin, M. Gagnebin, M. Harel, I. Manolescu and V. Tassion,
 > **Discontinuity of the phase transition for the planar random-cluster and Potts models with q > 4**,
-> [arXiv:1611.09877v2](https://arxiv.org/abs/1611.09877v2).
+> [arXiv:1611.09877v2](https://arxiv.org/abs/1611.09877v2); published in
+> Ann. Sci. Éc. Norm. Supér. (4) **54** (2021), no. 6, 1363–1413.
 
 Theorem 1.1 (the q-state Potts model, q > 4) and Theorem 1.2 (the random-cluster model, q > 4) are
 proved in Lean with no `sorry` and no axioms beyond Lean's three standard ones
-(`propext`, `Classical.choice`, `Quot.sound`). Every external result that the paper cites for these
-proofs (Edwards–Sokal coupling, FKG and comparison inequalities, Burton–Keane, planar duality, the
-coordinate Bethe ansatz, Perron–Frobenius, the analytic implicit function theorem, Brouwer's
-fixed-point theorem, …) is also proved here or taken from Mathlib; nothing is assumed.
+(`propext`, `Classical.choice`, `Quot.sound`). The external results that the paper cites and the
+proof uses (Edwards–Sokal coupling, FKG and comparison inequalities, finite energy, ergodicity and
+the 0–1 law for infinite clusters, planar self-duality, the coordinate Bethe ansatz of the companion
+paper [8], Perron–Frobenius, the analytic implicit function theorem, …) are proved here or taken from
+Mathlib; nothing is assumed. Uniqueness of the infinite cluster (Burton–Keane), which the paper cites,
+is not needed. Brouwer's fixed-point theorem, used once to make two crossing paths of a rectangle
+intersect, comes from the vendored library `vendor/fixed-point-theorems`.
 
 Formalized by Zijie Zhuang ([GitHub: zijie123123](https://github.com/zijie123123),
 [homepage](https://zijie123123.github.io/)), with AI agents; see [Provenance](#provenance-and-use-of-ai).
@@ -99,7 +103,7 @@ All three live in the namespace `PottsDiscontinuity`.
 ### How the paper's objects are represented
 
 These choices were fixed and reviewed before any proof was written (rulings R1–R10 of the project);
-they are also stated in the docstrings of `Challenge.lean`.
+several of them are also recorded in the docstrings of `Challenge.lean`.
 
 - **R1 – infinite-volume measures along boxes.** `μ^i_β` and `φ^i_{p,q}` are limits along the boxes
   `Λ_n = [−n, n]²` (induced subgraphs of ℤ²), rather than along an arbitrary exhaustion "as G tends to
@@ -109,7 +113,9 @@ they are also stated in the docstrings of `Challenge.lean`.
 - **R3 – existence packaging.** The theorems assert the existence of probability measures that are
   such cylinder limits and satisfy the conclusions. Existence of the box limits (stated but not proved
   in the paper, in particular for the literal Potts boundary term) is therefore part of what is
-  proved; uniqueness of cylinder limits is also proved (`Infra/CylinderUniqueness.lean`).
+  proved; uniqueness of cylinder limits is also proved
+  (`PottsDiscontinuity/Infra/CylinderUniqueness.lean`), so the existential packaging leaves no
+  freedom in the choice of the measures.
 - **R4 – explicit critical values.** `β_c = log(1+√q)` and `p_c = √q/(1+√q)` are used as explicit
   values (the paper takes them from [BefDum12]); the statement that they *are* the critical points is
   not part of the formalized theorems.
@@ -126,15 +132,21 @@ they are also stated in the docstrings of `Challenge.lean`.
   (1.3)). The two parts share no witness (λ and S are determined by q).
 - **R10 – finite volumes** are induced subgraphs on finite vertex sets V, with `∂V` the vertices of
   V having a neighbour of ℤ² outside V.
+- **Logarithms.** Lean's `Real.log x` is `log |x|` (and `log 0 = 0`). The limit statements in
+  Theorem 1.1(3) and Theorem 1.2(3) therefore do not by themselves assert that
+  `μ^0_{β_c}[σ_0 = σ_{x_n}] − 1/q` and `φ^0_{p_c,q}[0 ↔ x_n]` are positive, which the paper's notation
+  presupposes; they assert the stated limit of `−(1/n) log` of these quantities.
 
 ### Corrections to the paper's arguments
 
 The formalization proves the stated theorems; along the way several steps of the published argument
-had to be repaired (none affects the statements):
+had to be repaired. None affects the statements of Theorems 1.1 and 1.2. The repairs include:
 
-- **Lemma 3.15:** the event C in the proof does not force U = 1 as claimed (a formal counterexample
-  exists for N = M = 8, n = 1); the proof uses a corrected local connection event C′ instead.
-- **Lemma 3.14** is proved in a corrected `limsup` form.
+- **Lemma 3.15:** the event C in the proof does not force U = 1 as claimed (it fails for
+  N = M = 8, n = 1); the proof uses a corrected local connection event C′ instead.
+- **Lemma 3.14** is proved in a corrected `limsup` form, with one additional input: the free one-arm
+  probability on the rotated lattice tends to 0. This input is proved separately, from the positive
+  lower bound on the inverse correlation length ((3.24) and identity (4.4)).
 - **Section 3.3:** the dominance of Λ₀ over all sectors, which the argument uses without proof, is
   proved separately from (3.16), Corollary 3.13(iii) and the corrected Lemma 3.14.
 - **Lemma 3.2:** the identity `Z(M) = Tr((V^[n]_∞)^M)` fails for r ≥ 2 (e.g. N = 8, r = 2, M = 4); the
@@ -145,6 +157,9 @@ had to be repaired (none affects the statements):
   truncation estimate.
 - The absence of percolation for `φ^0_{p_c}` (q > 4) is derived from the finite correlation length
   rather than from Zhang's argument.
+- Misprints are corrected where the proof uses them (e.g. the relation between `p_c` and `β_c` in
+  the coupling section, and the factor `1 − 1/q` in the consequences of the Edwards–Sokal coupling),
+  as are some steps of the companion paper [8] that are formalized in `BetheAnsatz/`.
 
 ## Repository layout
 
@@ -216,7 +231,9 @@ proofs to the new Lean and Mathlib versions.
 The Lean code in this repository is released under the [Apache License 2.0](LICENSE). The vendored
 `vendor/fixed-point-theorems` keeps its MIT licence. The paper is © its authors and is not included.
 
-If you use this formalization, please cite the paper above and this repository.
+If you use this formalization, please cite the paper above and this repository. The companion paper
+[8] is H. Duminil-Copin, M. Gagnebin, M. Harel, I. Manolescu and V. Tassion, *The Bethe ansatz for
+the six-vertex and XXZ models: an exposition*, [arXiv:1611.09909](https://arxiv.org/abs/1611.09909).
 
 This repository is prepared for submission to [Palomar](https://palomar-registry.org/), a registry of
 Lean-verified mathematics (submission form: https://submit.palomar-registry.org/).

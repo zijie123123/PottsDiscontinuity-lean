@@ -2,8 +2,8 @@ module
 
 public import PottsDiscontinuity.TorusTopology.LoopPhaseCrossings
 
-/-! T3: U at least r gives r distinct bottom-to-top clusters in the exact
-seam-closed cylinder. Positive loop phases retain every winding multiplicity. -/
+/-! U at least r gives r distinct bottom-to-top clusters in the exact
+seam-closed cylinder (`hUr_proved`). Positive loop phases retain every winding multiplicity. -/
 
 @[expose] public section
 
@@ -41,8 +41,9 @@ theorem exists_crossing_family_indexed_by_vertical_phases
   subst k
   rfl
 
-/-- T3 on the exact cylinder event `TorusRC.torusRCSeamClosedCylinderCrossings`. Only seam
-edges are closed; no additional finite-energy modification or endpoint placement is assumed. -/
+/-- `U ≥ r` gives `r` distinct bottom-to-top clusters, on the exact cylinder event
+`TorusRC.torusRCSeamClosedCylinderCrossings`. Only seam edges are closed; no additional
+finite-energy modification or endpoint placement is assumed. -/
 theorem seamClosedCylinderCrossings_of_le_U
     (hN : Even N) (hM : Even M) (hMp : 0 < M) (r : ℕ) (A : RCConfig N M)
     (hr : r ≤ rcVerticalWinding hN hM ⟨0,hMp⟩ A) :

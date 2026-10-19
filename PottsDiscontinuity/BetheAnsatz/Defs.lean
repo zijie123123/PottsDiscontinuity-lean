@@ -6,7 +6,7 @@ public import PottsDiscontinuity.SixVertex.Defs
 /-!
 # Coordinate Bethe Ansatz: the objects of Theorem 3.1
 
-Main source: arXiv:1611.09877v2, `thm:BA`, lines 1165–1189.
+Main source: arXiv:1611.09877v2, Theorem 3.1.
 Companion source: arXiv:1611.09909v1, §2.2, equations `eq:BA_eigenvector`, `eq:A_si`.
 
 The positions in a `State N n` are enumerated increasingly in `0, ..., N-1`.

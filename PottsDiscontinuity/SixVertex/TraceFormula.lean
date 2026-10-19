@@ -6,8 +6,9 @@ public import PottsDiscontinuity.SixVertex.PathSum
 /-!
 # The trace formulas `Z_6V(N,M) = tr (V^M)` and `Z^{(r)}_{6V}(N,M) = tr ((V^{[N/2-r]})^M)`
 
-Companion paper arXiv:1611.09909v1, Proposition `prop:transfer-matrix` (proof in §4), and the main
-paper arXiv:1611.09877v2, §3.3 (`sec:RCM#trace-formula-Zr`).
+Companion paper [8], arXiv:1611.09909v1, Proposition 2.1 (proof in §4), and the main
+paper arXiv:1611.09877v2, §3.3 (the trace formula for the sector partition functions
+`Z^{(r)}_{6V}` used in the proof of Theorem 1.2).
 
 An arrow configuration of the torus is the same thing as the family of its rows: the up arrows
 `x_j = {i : vert (i, j)}` between rows `j` and `j + 1` and the horizontal arrows of each row.
@@ -230,7 +231,7 @@ theorem flux_of_iceRule {ω : ArrowConfig N M} (h : ω.IceRule) (j : Fin M) :
     decide_mem_stateRows] using this
 
 /-- For configurations obeying the ice rule the number of up arrows is the same on every row
-(`sec:RCM#row-arrow-conservation`), so `|ω|` is well defined. -/
+(as recalled in Section 3.3.1 of arXiv:1611.09877v2), so `|ω|` is well defined. -/
 theorem rowUp_eq_absUp {ω : ArrowConfig N M} (h : ω.IceRule) (j : Fin M) :
     ω.rowUp j = ω.absUp := by
   have hM : 0 < M := Fin.pos j
