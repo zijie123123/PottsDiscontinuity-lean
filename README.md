@@ -220,10 +220,12 @@ agents against the paper, approved by the author, and then frozen; only proofs w
 afterwards. The status is **agent-reviewed**: the Lean proofs are checked by Lean (and, via
 Comparator, by independent kernels), but no human mathematician has refereed the formal development.
 
-About 170 modules (finite FK-model foundations, planar duality and discrete topology) are adapted
-from an earlier, unpublished formalization of the planar FK model by the same author; each such file
-says so in its header. The development was carried out on Lean v4.34.1 and ported for this release
-to Lean v4.35.0-rc3 / Mathlib v4.35.0-rc3 and the Lean module system. The port changed no statement of the
+172 of the 873 modules under `PottsDiscontinuity/` (finite FK-model foundations, planar duality and
+discrete topology) are adapted from an earlier, unpublished formalization of the planar FK model by
+the same author (FKconvergence, not publicly accessible; recorded with the extent of adaptation under
+`related_formalizations` in `formalization.yaml`); each such file says so in its header. The
+development was carried out on Lean v4.34.1 and ported for this release to Lean v4.35.0-rc3 /
+Mathlib v4.35.0-rc3 and the Lean module system. The port changed no statement of the
 main theorems or of their 17 definitions (their text is identical up to the namespace prefix
 `Research.PottsDiscontinuity` → `PottsDiscontinuity`); it made helper declarations public where
 the module system requires it, renamed a few internal helper declarations, and adapted a handful of

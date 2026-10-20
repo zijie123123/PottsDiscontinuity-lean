@@ -73,7 +73,25 @@ sources:
     license: "arXiv non-exclusive distribution licence (nonexclusive-distrib/1.0); not redistributed here"
     author_endorsement: "not-contacted"
 
-related_formalizations: []
+related_formalizations:
+  - id: "FKconvergence: unpublished Lean 4 development by Zijie Zhuang (2026), not publicly accessible"
+    relationship: "adapts"
+    note: >-
+      An earlier Lean 4 development by the same author on the critical planar FK (random-cluster)
+      model on the square lattice with 1 <= q < 4. It has not been published and is not publicly
+      accessible; there is no URL, release or commit that could be cited, so it is identified by its
+      project name, FKconvergence. 172 of the 873 modules under PottsDiscontinuity/ (about 24,000 of
+      120,000 lines) are adapted from it, and each of them says so in its header: 57 in FK/ (finite
+      FK measures on graphs, boundary conditions, positive association, comparison and finite-energy
+      inequalities, box limits), 42 in Duality/ (planar duality) and 73 in TorusTopology/ and
+      TorusExploration/ (discrete topology of the lattice and its medial graph). The extent of
+      adaptation ranges from relocating namespaces and imports only (about 60 modules) to
+      generalizing the parameters to independent 0 < p < 1 and q >= 1 with no upper bound on q (about
+      50 modules) and connecting the code to this development's FK library (about 40 modules); a few
+      modules adapt individual arguments, for example comparison inequalities reversed for wired
+      boundary conditions. The statements of the three main theorems and their 17 definitions
+      (PottsDiscontinuity/Frozen/) were transcribed from the paper and are not taken from it; the
+      other modules under PottsDiscontinuity/ were written for this development.
 
 status:
   scope: >-
