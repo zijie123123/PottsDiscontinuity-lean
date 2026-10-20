@@ -3,7 +3,7 @@ module
 public import PottsDiscontinuity.PottsThm.LatticeColorNoise
 public import PottsDiscontinuity.PottsThm.ProductErgodicity
 public import PottsDiscontinuity.RCInfinite.ClusterEvents
-public import Mathlib.Order.Prod.Lex.Basic
+public import Mathlib.Data.Prod.Lex
 
 @[expose] public section
 

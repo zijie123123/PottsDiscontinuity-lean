@@ -3,7 +3,7 @@
 The proof of Theorems 1.1 and 1.2 uses Brouwer's fixed-point theorem
 (`brouwer_fixed_point`, applied once in
 `PottsDiscontinuity/Duality/RectanglePathIntersection.lean` to show that two crossing paths of a
-rectangle intersect). Mathlib v4.35.0 does not contain this theorem, so the five modules of
+rectangle intersect). Mathlib v4.35.0-rc3 does not contain this theorem, so the five modules of
 <https://github.com/harfe/fixed-point-theorems-lean4> that prove it are vendored here.
 
 - Upstream repository: https://github.com/harfe/fixed-point-theorems-lean4
@@ -16,7 +16,7 @@ rectangle intersect). Mathlib v4.35.0 does not contain this theorem, so the five
 Changes relative to the upstream commit (no change to any statement):
 
 1. compatibility edits for recent Lean and Mathlib (deprecated names, `import Mathlib`, proof
-   repairs), first made for Lean v4.34.1 and then for Lean v4.35.0 / Mathlib v4.35.0;
+   repairs), first made for Lean v4.34.1 and then for Lean v4.35.0-rc3 / Mathlib v4.35.0-rc3;
 2. a mechanical port to the Lean module system (`module`, `public import`,
    `@[expose] public section`), required because every Lean file in a Palomar submission must be a
    module.

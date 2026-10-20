@@ -8,7 +8,7 @@ autoImplicit = false
 [[require]]
 name = "mathlib"
 git = "https://github.com/leanprover-community/mathlib4.git"
-rev = "v4.35.0"
+rev = "v4.35.0-rc3"
 
 # Vendored copy of the five fixed-point-theorems modules used by the proof
 # (Brouwer's fixed-point theorem), ported to the module system. MIT licence in

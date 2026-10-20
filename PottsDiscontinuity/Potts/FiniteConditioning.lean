@@ -6,7 +6,7 @@ public import Mathlib.Combinatorics.SetFamily.FourFunctions
 public import Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected
 public import Mathlib.Data.Fintype.Card
 public import Mathlib.Data.Fintype.Powerset
-public import Mathlib.Order.Setoid.Basic
+public import Mathlib.Data.Setoid.Basic
 public import Mathlib.MeasureTheory.Measure.Real
 public import Mathlib.Order.Interval.Set.Basic
 public import Mathlib.Probability.ProbabilityMassFunction.Constructions

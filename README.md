@@ -179,7 +179,10 @@ had to be repaired. None affects the statements of Theorems 1.1 and 1.2. The rep
 ## Building and checking
 
 Requirements: [elan](https://github.com/leanprover/elan); the toolchain is pinned in
-`lean-toolchain` (**Lean v4.35.0**) and Mathlib is pinned to tag **v4.35.0** in `lake-manifest.json`.
+`lean-toolchain` (**Lean v4.35.0-rc3**) and Mathlib is pinned to tag **v4.35.0-rc3** in
+`lake-manifest.json`. (Release candidate rc3 rather than the final v4.35.0: Palomar's Challenge
+renderer cannot yet render module-system Challenges on v4.35.0, see
+[PalomarSubmission#161](https://github.com/PalomarRegistry/PalomarSubmission/issues/161).)
 
 ```bash
 lake exe cache get          # download compiled Mathlib
@@ -220,7 +223,7 @@ Comparator, by independent kernels), but no human mathematician has refereed the
 About 170 modules (finite FK-model foundations, planar duality and discrete topology) are adapted
 from an earlier, unpublished formalization of the planar FK model by the same author; each such file
 says so in its header. The development was carried out on Lean v4.34.1 and ported for this release
-to Lean v4.35.0 / Mathlib v4.35.0 and the Lean module system. The port changed no statement of the
+to Lean v4.35.0-rc3 / Mathlib v4.35.0-rc3 and the Lean module system. The port changed no statement of the
 main theorems or of their 17 definitions (their text is identical up to the namespace prefix
 `Research.PottsDiscontinuity` → `PottsDiscontinuity`); it made helper declarations public where
 the module system requires it, renamed a few internal helper declarations, and adapted a handful of

@@ -3,7 +3,7 @@ Parameter generalization: independent 0 < p < 1 and 1 ≤ q, with no upper bound
 module
 
 public import PottsDiscontinuity.FK.IsolatedExtension
-public import Mathlib.Order.Setoid.Basic
+public import Mathlib.Data.Setoid.Basic
 
 @[expose] public section
 
